@@ -40,7 +40,7 @@ export const IdCardForm = ()  => {
         formData.append("file", fileList[0].extra);
 
         uploadIdCardFile(formData).then((response) => {
-                if (response.status === 200) {
+                if (response?.status === 200) {
                     setIdCardData(response.data);
                     form.setFieldsValue(response.data);
                 }
@@ -64,7 +64,7 @@ export const IdCardForm = ()  => {
             }
 
             certificateFamilyDocument(request).then((response) => {
-                if (response.status === 200) {
+                if (response?.status === 200) {
                     console.log("response.data.familyInfo", response.data.familyInfo);
                     setFamiliesInfo([...response.data.familyInfo]);
                     // TODO form 정보를 수정할 수 없는 Card 형식의 정보로 만들기
@@ -96,7 +96,7 @@ export const IdCardForm = ()  => {
             };
 
             registerCustomerAndFamily(request).then((response) => {
-                    if (response.status === 200) {
+                    if (response?.status === 200) {
                         console.log("본인 및 가족 고객 등록 완료");
                     }
                 }
