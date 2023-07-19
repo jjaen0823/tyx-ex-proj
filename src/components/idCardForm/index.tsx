@@ -25,39 +25,7 @@ export const IdCardForm = ()  => {
             customerAddress: "",
         }
     );
-    const [familiesInfo, setFamiliesInfo] = useState<FamilyDocumentInfo[]>(
-[]
-    );
-    useEffect( () => {
-        const formValues = form.getFieldsValue();
-        const request: CustomerAndFamilyInfoRequest = {
-            customerInfo: {
-                customerName: formValues.customerName,
-                customerPersonalNum: formValues.customerPersonalNum,
-                customerAddress: formValues.customerAddress,
-                customerPhoneNum: formValues.customerPhoneNum
-            },
-            familyInfoList: convertFamiliesInfo()
-        };
-
-        registerCustomerAndFamily(request).then((response) => {
-                if (response.status === 200) {
-                    console.log("본인 및 가족 고객 등록 완료");
-                }
-            }
-        )
-
-        Toast.show({
-            content: '등록되었습니다.',
-            duration: 5000,
-            icon: 'success',
-        })
-
-        // file, form 초기화
-        // setFileList([]);
-        // setFamiliesInfo([]);
-        // form.resetFields();
-    }, [familiesInfo]);
+    const [familiesInfo, setFamiliesInfo] = useState<FamilyDocumentInfo[]>([]);
 
     function submitImage() {
         if (fileList.length <= 0) {
@@ -94,14 +62,14 @@ export const IdCardForm = ()  => {
                 customerPhoneNum: formValues.customerPhoneNum,
                 fatherName: formValues.fatherName
             }
-            // mock
 
             certificateFamilyDocument(request).then((response) => {
                 if (response.status === 200) {
                     console.log("response.data.familyInfo", response.data.familyInfo);
-                    setFamiliesInfo((prev) =>  [...response.data.familyInfo]);
-
+                    setFamiliesInfo([...response.data.familyInfo]);
                     // TODO form 정보를 수정할 수 없는 Card 형식의 정보로 만들기
+                } else {
+                    console.log("가족관계증명서 인증 실패;")
                 }
             })
 
@@ -141,10 +109,10 @@ export const IdCardForm = ()  => {
             })
 
             // file, form 초기화
-            // setFileList([]);
-            // setFamiliesInfo([]);
-            // form.resetFields();
-        }, []
+            setFileList([]);
+            setFamiliesInfo([]);
+            form.resetFields();
+        }, [familiesInfo]
     );
 
     const convertFamiliesInfo = (): FamilyInfoRequest[] => {
