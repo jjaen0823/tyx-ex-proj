@@ -27,7 +27,7 @@ jobs:
         contect: .
         file: ./Dockerfile
         push: true
-        tags: jjaen0823/react
+        tags: jjaen0823/ocr-app-front
         labels: latest
 
 # jobs:
