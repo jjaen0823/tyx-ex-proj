@@ -12,7 +12,7 @@
 #CMD ["nginx", "-g", "daemon off;"]
 
 # React 프로젝트에 맞는 Node 이미지 선택
-FROM node:16
+FROM node:18
 
 # 작업 디렉토리 생성
 WORKDIR /app
