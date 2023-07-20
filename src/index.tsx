@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {RouterProvider} from "react-router-dom";
-import router from "./routes";
+import {RouterProvider} from 'react-router-dom';
+import router from './routes';
+
+import {ConfigProvider} from 'antd-mobile';
+import ko_KR from 'antd-mobile/es/locales/ko-KR';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ConfigProvider locale={ko_KR}>
+      <RouterProvider router={router} />
+    </ConfigProvider>
   </React.StrictMode>
 );
 

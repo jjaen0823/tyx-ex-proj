@@ -23,8 +23,6 @@ const Main = () => {
           >
               <IdCardForm></IdCardForm>
           </Tabs.Tab>
-          {/*<Tabs.Tab title="가족관계증명서 신청" key="family">가족관계증명서 신청</Tabs.Tab>*/}
-          {/*<Tabs.Tab title="주민등록등본 신청" key="residents">주민등록등본 신청</Tabs.Tab>*/}
       </Tabs>
     </DemoBlock>
   </>
