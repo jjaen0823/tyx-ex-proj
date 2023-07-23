@@ -70,6 +70,8 @@ export const IdCardForm = ()  => {
                     // TODO form 정보를 수정할 수 없는 Card 형식의 정보로 만들기
                 } else {
                     console.log("가족관계증명서 인증 실패;")
+                    console.log("response : \n", response)
+                    console.log("response status: \n", response.status)
                 }
             })
 
