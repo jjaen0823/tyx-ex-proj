@@ -6,7 +6,7 @@ const dev = '';
 const apiInstance = axios.create({
   // baseURL: `${window.location.protocol}//${window.location.host}`,
   baseURL: `http://${local}`,
-  // withCredentials: true,
+  withCredentials: true,
   // timeout: 8000
   // headers: {
   //
