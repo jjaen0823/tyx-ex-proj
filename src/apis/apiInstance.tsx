@@ -11,6 +11,7 @@ const apiInstance = axios.create({
   // headers: {
   //
   // }
+  responseType: 'json',
 });
 
 // request interceptor
