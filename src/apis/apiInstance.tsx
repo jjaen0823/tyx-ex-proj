@@ -37,10 +37,9 @@ apiInstance.interceptors.response.use(
     // access token, refresh token 갱신
     console.log('응답 인터셉터 에러');
     console.log("==============ERROR DATA==============");
-    console.log(error.status);
-    console.log(error.data);
     console.log(error.name);
-    console.log(error.content);
+    console.log(error.message);
+    console.log(error.confirm);
     console.log("==============ERROR DATA==============");
     // return Promise.reject(error);
   }
