@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const local = 'localhost:8080';
+const local = 'http://43.202.101.105:8080';
 const dev = '';
 
 const apiInstance = axios.create({
   // baseURL: `${window.location.protocol}//${window.location.host}`,
-  baseURL: `http://${local}`,
+  baseURL: local,
   withCredentials: true,
   // timeout: 8000
   // headers: {
